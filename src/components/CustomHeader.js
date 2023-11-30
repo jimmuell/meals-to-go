@@ -11,9 +11,17 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Header = ({title}) => {
+const Header = ({ title, scrollY }) => {
+  // Interpolate background color based on scrollY
+  const backgroundColor =
+    scrollY >= 1 && scrollY <= 30
+      ? `rgba(255, 0, 0, ${scrollY / 30})` // Transition to red
+      : scrollY > 30
+      ? "red"
+      : "orange";
+
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, { backgroundColor }]}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.headerLeft}>
         <TouchableOpacity style={styles.headerIconButtons}>

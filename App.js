@@ -6,10 +6,12 @@ import BottomNav from "./src/components/BottomNav";
 
 export default function App() {
   const [headerTitle, setHeaderTitle] = useState(" ");
+  const [scrollY, setScrollY] = useState(0); // New state for scroll offset
+
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Header title={headerTitle} />
-      <ScrollManager setHeaderTitle={setHeaderTitle} />
+      <Header title={headerTitle} scrollY={scrollY} />
+      <ScrollManager setHeaderTitle={setHeaderTitle} setScrollY={setScrollY} />
       <BottomNav />
     </SafeAreaView>
   );
