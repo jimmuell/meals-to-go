@@ -20,7 +20,7 @@ const ScrollManager = ({ setHeaderTitle, setScrollY }) => {
   const handleScroll = (event) => {
     const offsetY = event.nativeEvent.contentOffset.y;
     setScrollY(offsetY); // Pass the offsetY back to the App component
-    console.log("Scroll Y-Offset:", offsetY); // Log the scroll position
+    //console.log("Scroll Y-Offset:", offsetY); // Log the scroll position
 
     // Define the heights at which the title should change
     const sectionHeights = {
@@ -41,7 +41,7 @@ const ScrollManager = ({ setHeaderTitle, setScrollY }) => {
       newTitle = "Home";
     }
 
-    console.log("Current Section:", newTitle); // Log the current section title
+    //console.log("Current Section:", newTitle); // Log the current section title
     setHeaderTitle(newTitle);
   };
 

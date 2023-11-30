@@ -11,14 +11,23 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Header = ({ title, scrollY }) => {
-  // Interpolate background color based on scrollY
-  const backgroundColor =
+const Header = ({ title, scrollY, headerColor }) => {
+  // Determine if dynamic color change based on scroll is needed
+  const isDynamicColor = headerColor === "dynamic";
+  //console.log("ScrollY value in Header:", scrollY);
+
+  // Interpolate background color based on scrollY for dynamic color change
+  const dynamicBackgroundColor =
     scrollY >= 1 && scrollY <= 30
-      ? `rgba(255, 0, 0, ${scrollY / 30})` // Transition to red
+      ? `rgba(255, 255, 255, 1, ${scrollY / 30})` // Transition to red
       : scrollY > 30
-      ? "red"
-      : "orange";
+      ? "white" // white
+      : "#f6f5f3"; // Default color (change this as needed)
+
+  // Use dynamicBackgroundColor if isDynamicColor is true, else use the static headerColor
+  const backgroundColor = isDynamicColor
+    ? dynamicBackgroundColor
+    : headerColor;
 
   return (
     <View style={[styles.header, { backgroundColor }]}>

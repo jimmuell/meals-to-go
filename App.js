@@ -7,10 +7,11 @@ import BottomNav from "./src/components/BottomNav";
 export default function App() {
   const [headerTitle, setHeaderTitle] = useState(" ");
   const [scrollY, setScrollY] = useState(0); // New state for scroll offset
+  const [headerColor, setHeaderColor] = useState("dynamic"); // Initialize with "dynamic"
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Header title={headerTitle} scrollY={scrollY} />
+      <Header title={headerTitle} scrollY={scrollY} headerColor={headerColor} />
       <ScrollManager setHeaderTitle={setHeaderTitle} setScrollY={setScrollY} />
       <BottomNav />
     </SafeAreaView>
