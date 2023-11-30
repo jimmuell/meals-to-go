@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+import Header from "./src/components/CustomHeader";
+import ScrollManager from "./src/components/ScrollManager";
+import BottomNav from "./src/components/BottomNav";
 
 export default function App() {
+  const [headerTitle, setHeaderTitle] = useState(" ");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <Header title={headerTitle} />
+      <ScrollManager setHeaderTitle={setHeaderTitle} />
+      <BottomNav />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  safeArea: {
+    flex: 1, // to ensure it fills the whole screen
+    // backgroundColor: 'desired-color', // if you want to apply a specific color to the safe area
   },
 });
